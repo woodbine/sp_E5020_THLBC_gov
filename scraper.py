@@ -26,7 +26,7 @@ soup = BeautifulSoup(html)
 links = soup.findAll('a', href=True)
 
 for link in links:
-	url = link['href']:
+	url = link['href']
 	title = link.contents[0]
 	if 'Payments for' in title or 'Payment for' in title:
 		# create the right strings for the new filename
