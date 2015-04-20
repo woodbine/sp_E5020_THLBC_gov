@@ -27,10 +27,10 @@ links = soup.findAll('a', href=True)
 
 for link in links:
 	url = 'http://www.towerhamlets.gov.uk/' + link['href']
-	title = link.contents[0].encode('UTF-8')
-	print title
+	title = link.contents[0].encode('ascii')
 	# title = title.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 	if title.startswith('Payment'):
+		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
 		csvMth = title.split(' ')[-2][:3]
