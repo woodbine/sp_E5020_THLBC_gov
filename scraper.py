@@ -30,11 +30,11 @@ for link in links:
 	# title = link.contents[0].encode('ascii')
 	title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 	if title.startswith('Payments for') or title.startswith('Payment for'):
+		title = title.strip().upper()
 		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
 		csvMth = title.split(' ')[-2][:3]
-		csvMth = csvMth.upper()
 		csvMth = convert_mth_strings(csvMth);
 		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
 		todays_date = str(datetime.now())
