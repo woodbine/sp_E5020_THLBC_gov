@@ -29,7 +29,7 @@ for link in links:
 	url = 'http://www.towerhamlets.gov.uk/' + link['href']
 	# title = link.contents[0].encode('ascii')
 	title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
-	if title.startswith('Payments for') or title.startswith('Payment for':
+	if title.startswith('Payments for') or title.startswith('Payment for'):
 		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
