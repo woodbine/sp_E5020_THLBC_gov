@@ -30,7 +30,7 @@ for link in links:
 	# title = link.contents[0].encode('ascii')
 	title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 	if title.startswith('Payments for') or title.startswith('Payment for'):
-		title = title.strip().upper()
+		title = title.strip('\r\n').upper()
 		print title
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
