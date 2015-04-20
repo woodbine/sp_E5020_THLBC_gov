@@ -26,9 +26,9 @@ soup = BeautifulSoup(html)
 links = soup.findAll('a', href=True)
 
 for link in links:
-	url = link['href']
+	url = 'http://www.towerhamlets.gov.uk/' + link['href']
 	title = link.contents[0]
-	if 'Payments for' in title or 'Payment for' in title:
+	if title.startswith('Payment'):
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
 		csvMth = title.split(' ')[-2][:3]
