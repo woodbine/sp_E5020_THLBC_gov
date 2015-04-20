@@ -6,8 +6,8 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 # Set up variables
-entity_id = "E5043_KUTCRBO_gov"
-url = "http://data.kingston.gov.uk/Kingston_Open_Data/"
+entity_id = "E5020_THLBC_gov"
+url = "http://www.towerhamlets.gov.uk/lgsl/800001-800100/800043_transparency/payments_to_suppliers-1.aspx"
 
 # Set up functions
 def convert_mth_strings ( mth_string ):
@@ -26,9 +26,9 @@ soup = BeautifulSoup(html)
 links = soup.findAll('a', href=True)
 
 for link in links:
-	url = link['href']
-	if 'https://drive.google.com/file/d/' in url:
-		title = link.contents[0]
+	url = link['href']:
+	title = link.contents[0]
+	if 'Payments for' in title or 'Payment for' in title:
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[-1]
 		csvMth = title.split(' ')[-2][:3]
